@@ -97,7 +97,7 @@ const NODES = [
   note:'Beijing Electronics Holding: municipal holding company over BOE, Sevenstar (NAURA lineage) and YDME. Created Beidian Integration, the SPV pooling YDME + BOE + E-Town capital for the RMB 33B 12-inch specialty fab.'},
  {id:'etown', l:'E-Town Capital 亦庄国投', s:'Yizhuang zone fund', tier:'loc', x:330, y:170, w:150,
   note:'The Beijing ETDZ investment platform: 24.51% of SMIC Beijing, capital in Beidian Integration, anchor investor in Gopptix and equipment startups. The financing engine of the Yizhuang cluster.'},
- {id:'shstate', l:'Shanghai state capital', s:'联和投资 · 上海科创投', tier:'loc', x:630, y:170, w:160,
+ {id:'shstate', l:'Shanghai state capital', s:'联和投资 · 上海科创投 · 上海电气', tier:'loc', x:630, y:170, w:160,
   note:'Shanghai’s vehicles: Lianhe Investment historically controls Hua Hong Group; Shanghai Science & Technology Venture Capital holds ~15% of AMEC as largest shareholder (~) and 50% of litho startup Yuliangsheng (with SiCarrier).'},
  {id:'szmajor', l:'SZ Major Industry Inv. Group', s:'深圳重大产业投资集团 (SZ SASAC)', tier:'loc', x:910, y:170, w:200,
   note:'Shenzhen’s legal firewall: wholly owns SiCarrier and owns SwaySure, PXW and PST — the fabs Huawei is believed to direct but cannot own under Entity-List sanctions. A 60-30-10 municipal/guidance-fund/district vehicle also holds the Guangming science-city instruments — the same asset family funds the open-science and closed supply-chain layers at once.'},
@@ -135,6 +135,9 @@ const NODES = [
   note:'STAR-listed etch leader. Largest shareholder: Shanghai Science & Technology Venture Capital (~15%) (~) — a state VC rather than a holding company; founder Gerald Yin retains management control.'},
  {id:'yuliang', l:'Yuliangsheng 宇量昇', s:'immersion DUV litho', tier:'firm', x:740, y:560, w:130,
   note:'The ASML-workaround vehicle: 50% Shanghai Sci-Tech Venture Capital / 50% SiCarrier. Absorbed SMEE’s front-end litho team; SMIC reportedly began testing its immersion DUV scanner Sep 2025.'},
+
+ {id:'smee', l:'SMEE 上海微电子', s:'lithography (Shanghai Electric)', tier:'firm', x:665, y:495, w:130,
+  note:'上海微电子装备(集团)股份有限公司 — China’s lithography incumbent (founded 2002): mature-node DUV scanners plus dominance in advanced-packaging and display litho. Controlled by Shanghai Electric 上海电气, a municipal SOE under Shanghai SASAC (~). Its front-end (wafer-scanner) litho team was absorbed into Yuliangsheng — the 50/50 Shanghai Sci-Tech VC × SiCarrier vehicle pursuing immersion DUV — shifting China’s leading-edge litho bet from the legacy SOE to the new Huawei-adjacent structure.'},
 
  {id:'sicarrier', l:'SiCarrier 新凯来', s:'chip tools', tier:'firm', x:875, y:430, w:120,
   note:'Wholly owned by Shenzhen Major Industry Investment Group; US Commerce lists alias “Huawei Starlight Engineering Department.” Holds 50% of Yuliangsheng (litho, Shanghai). Tool halls sit skybridge-distance from the Huawei-operated Guanlan fab.'},
@@ -191,8 +194,11 @@ const EDGES = [
  {f:'hefeistate',t:'cxmt',  ty:'loc', pct:'founding', d:'合肥产投 co-founded CXMT (2016 “506 project”); post-IPO the register is broad with no controlling shareholder.'},
  {f:'hefeistate',t:'hfpayton',ty:'loc', pct:'', d:'Hefei ETDZ funds co-invested in the packaging base beside CXMT.'},
 
+ {f:'shstate', t:'smee',    ty:'loc', pct:'control (~)', d:'Controlled via Shanghai Electric 上海电气 (municipal SOE) — the legacy-SOE home of China’s lithography program.'},
+
  // corporate / inter-firm (blue)
  {f:'smic',    t:'smicbj',  ty:'corp', pct:'51%', d:'SMIC majority in the Beijing JV.'},
+ {f:'smee',    t:'yuliang', ty:'corp', dash:1, pct:'team →', d:'SMEE’s front-end wafer-litho team absorbed into Yuliangsheng (~2022) — people and know-how rather than equity; SMIC reportedly began testing the resulting immersion DUV scanner Sep 2025.'},
  {f:'sicarrier',t:'yuliang',ty:'corp', pct:'50%', d:'SiCarrier’s lithography arm — Shenzhen state tools money meets Shanghai state VC.'},
  {f:'giga',    t:'cxmt',    ty:'corp', pct:'co-founder', d:'GigaDevice co-founded CXMT and remains design partner; modest residual stake (~).'},
  {f:'ymtc',    t:'xmc',     ty:'corp', pct:'29.2%', d:'Down from 68.2% after the 39% sale to Optics Valley state capital (Jun 2026) — equity as corporate separation ahead of dual IPOs.'},
